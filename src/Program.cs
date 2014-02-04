@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,22 +24,38 @@ namespace bql_format_tool
             int ident = 0;
             while (_input.Peek() != -1)
             {
-                var c = (char) _input.Read();
-                
-                _output.Write(c);
+                var c = (char)_input.Read();
 
-                if (c == '<')
+                if (!char.IsWhiteSpace(c))
                 {
-                    ident++;
-                    _output.Write("\n{0," + (ident * 2) + "}", "");
-                }
+                    _output.Write(c);
 
-                if (c == '>')
-                {
-                    ident--;
-                    _output.Write("\n{0," + (ident * 2) + "}", "");
+                    if (c == '<')
+                    {
+                        ident++;
+                        NextLine(ident);
+                    }
+
+                    if (c == '>')
+                    {
+                        ident--;
+                        if ((char) _input.Peek() != '>' && (char) _input.Peek() != ',')
+                        {
+                            NextLine(ident);
+                        }
+                    }
+
+                    if (c == ',')
+                    {
+                        NextLine(ident);
+                    }
                 }
             }
+        }
+
+        private void NextLine(int ident)
+        {
+            _output.Write("\n{0," + (ident*4) + "}", "");
         }
     }
 
