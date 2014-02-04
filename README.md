@@ -2,21 +2,25 @@ bql-format-tool
 ===============
 
 BQL formatting tool.
+Feel free to embed it in any editor you like.
 
-Input:
+Usage:
+------
+
+stdin:
 ```
     Where<Table.Field, Equals<Current<Table.Field>>, Or<Equals<Required<Table.Field>>>>
 ```
 
-Output:
+stdout:
 ```
     Where<
-    Table.Field,
-    Equals<
-        Current<
-            Table.Field>>,
-    Or<
+        Table.Field,
         Equals<
-            Required<
-                Table.Field>>>>
+            Current<
+                Table.Field>>,
+        Or<
+            Equals<
+                Required<
+                    Table.Field>>>>
 ```
