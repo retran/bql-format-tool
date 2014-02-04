@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Odbc;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bql_format_tool
 {
-    class Formatter
+    internal class Formatter
     {
         private readonly TextReader _input;
         private readonly TextWriter _output;
@@ -24,7 +19,7 @@ namespace bql_format_tool
             int ident = 0;
             while (_input.Peek() != -1)
             {
-                var c = (char)_input.Read();
+                var c = (char) _input.Read();
 
                 if (!char.IsWhiteSpace(c))
                 {
@@ -59,9 +54,9 @@ namespace bql_format_tool
         }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             (new Formatter(Console.In, Console.Out)).Format();
         }
