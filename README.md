@@ -4,8 +4,8 @@ bql-format-tool
 BQL formatting tool.
 Feel free to embed it in any editor you like.
 
-Usage:
-------
+Usage
+-----
 
 stdin:
 ```
@@ -22,3 +22,8 @@ Search<
         Equal<
             PX.Objects.CR.Contact.bAccountID>>>
 ```
+
+Todos
+-----
+[ ] integration with Visual Studio
+[ ] logical operations formating based on semantics
