@@ -25,5 +25,5 @@ Search<
 
 Todos
 -----
-[ ] integration with Visual Studio
-[ ] logical operations formating based on semantics
+- [ ] integration with Visual Studio
+- [ ] logical operations formating based on semantics
