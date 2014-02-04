@@ -9,18 +9,16 @@ Usage:
 
 stdin:
 ```
-    Where<Table.Field, Equals<Current<Table.Field>>, Or<Equals<Required<Table.Field>>>>
+Search<PX.Objects.CR.Contact.contactID, Where<Optional<PX.Objects.GL.Batch.usrBAccountID>, Equal<PX.Objects.CR.Contact.bAccountID>>>
 ```
 
 stdout:
 ```
+Search<
+    PX.Objects.CR.Contact.contactID,
     Where<
-        Table.Field,
-        Equals<
-            Current<
-                Table.Field>>,
-        Or<
-            Equals<
-                Required<
-                    Table.Field>>>>
+        Optional<
+            PX.Objects.GL.Batch.usrBAccountID>,
+        Equal<
+            PX.Objects.CR.Contact.bAccountID>>>
 ```
